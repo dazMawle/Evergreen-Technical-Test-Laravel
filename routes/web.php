@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('form');
 });
 
-Route::get('/customerlist', function () {
-    return view('customerlist');
-});
-
 Route::get('/customerlist', [CustomerController::class, 'displayCustomers'])->name('customerlist');
 
 Route::post('/addcustomer', [CustomerController::class, 'addCustomer'])->name('addcustomer');
