@@ -22,4 +22,4 @@ Set up:
 
 * Run 'php artisan serve' and go to http://127.0.0.1:8000 in your browser
 
-* [Demo video here:]('https://drive.google.com/file/d/1CX7rPipWVCH27-o48hn4vr0xvlhN8oIW/view?usp=sharing')
+* [Demo video here:](https://drive.google.com/file/d/1CX7rPipWVCH27-o48hn4vr0xvlhN8oIW/view?usp=sharing)
