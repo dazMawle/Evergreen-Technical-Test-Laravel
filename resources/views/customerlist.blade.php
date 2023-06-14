@@ -43,8 +43,11 @@
 
                     @foreach ($customers as $customer)
 
-                        @php($fulladdress = "{{$customer->house_number}}+{{$customer->street}}+{{$customer->town_city}}+{{$customer->post_code}}")
-                        
+                        @php 
+                            $fulladdress = $customer->house_number ." ". $customer->street ." ". $customer->town_city ." ". $customer->post_code;
+                            $url = str_replace(" ", "+", $fulladdress);
+                        @endphp
+
                         <tr class="align-middle fs-6">
                             <td> {{ $customer->company_name }} </td> 
                             <td> {{ $customer->first_name }} </td>
@@ -57,8 +60,8 @@
 
                             <td>
                                 <!-- Below inside the <a> tag href attribute, I've not used $fulladdress as it was causing issues and I couldn't figure out why in time. What I replaced it with is more verbose, but works. -->
-                                <a href="https://www.google.co.uk/maps/place/{{ $customer->house_number }}+{{ $customer->street }}+{{ $customer->town_city }}+{{ $customer->post_code }}" target="_blank">
-                                    <img class="border-success rounded-3" src="https://maps.googleapis.com/maps/api/staticmap?center={{ $fulladdress }} &zoom=10&size=125x125&markers=color:green|label:E|{{ $fulladdress }}&key={{ env('GOOGLE_MAPS_API_KEY') }}" alt="Customer address map">
+                                <a href="https://www.google.co.uk/maps/place/{{ $url }}" target="_blank">
+                                    <img class="border-success rounded-3" src="https://maps.googleapis.com/maps/api/staticmap?center={{ $url }} &zoom=10&size=125x125&markers=color:green|label:E|{{ $url }}&key={{ env('GOOGLE_MAPS_API_KEY') }}" alt="Customer address map">
                                 </a>
                             </td>
                         </tr>
